@@ -48,25 +48,24 @@ def download_history_data(code,path='data/'):
     print('股票---',code, '历史数据正在下载')
 
 def download_all_hitory(exchange='all',path=''):
+    code_list = get_stock_list()
     if exchange == 'all':
         code_list = get_stock_list()
     if exchange == 'sz':
-        code_list = ''
+        new_list=[]
+        for code in code_list:
+            if code[0]=='0':
+                new_list.append(code)
+        code_list = get_stock_list()
     if exchange == 'sh':
-        code_list = ''
+        new_list=[]
+        for code in code_list:
+            if code[0]=='6':
+                new_list.append(code)
+        code_list = get_stock_list()
 
     for temp_code in code_list:
         time.sleep(1)
-        download = download_history_data(temp_code,path)
-        download.run()
+        download_history_data(temp_code,path)
 
-'''
-download_history_data('000002')
-download_history_data('000002','D:/temp/data')
-'''
-
-'''
-list=get_stock_list() #获得全部股票
-download_history_data('000002') #获得000002数据
-'''
 
