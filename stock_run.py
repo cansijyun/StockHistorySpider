@@ -33,20 +33,21 @@ def download_date(code):
         end_date = ''.join(response.xpath('//input[@name="date_end_type"]/@value')[0].split('-'))
     return start_date,end_date
 
-def download_history_data(code,path=''):
+def download_history_data(code,path='data/'):
     date_list=download_date(code)
     start_data=date_list[0]
     end_date=date_list[1]
     download_url=sv.DATA_REQUEST%(code,start_data,end_date)
 
     data = requests.get(download_url)
-    f = open(path+'/'+code + '.csv', 'wb')
-    for chunk in data.iter_content(chunk_size=10000):
-        if chunk:
-            f.write(chunk)
+    with open(path+code+'.csv', 'wb') as f:
+        #一般情况下，应该以下面的模式将文本流保存到文件：
+        for chunk in data.iter_content(chunk_size=10000):
+            if chunk:
+                f.write(chunk)
     print('股票---',code, '历史数据正在下载')
 
-def download_all_hitory(exchange,path=''):
+def download_all_hitory(exchange='all',path=''):
     if exchange == 'all':
         code_list = get_stock_list()
     if exchange == 'sz':
@@ -59,10 +60,13 @@ def download_all_hitory(exchange,path=''):
         download = download_history_data(temp_code,path)
         download.run()
 
-
+'''
 download_history_data('000002')
 download_history_data('000002','D:/temp/data')
+'''
+
 '''
 list=get_stock_list() #获得全部股票
 download_history_data('000002') #获得000002数据
 '''
+
