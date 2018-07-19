@@ -28,3 +28,6 @@ tss.download_all_hitory('sz') #下载全部深圳证券交易所股票数据
 
 tss.download_all_hitory('sh','shdata/') #下载全部上海证券交易所股票数据到shdata文件夹
 
+
+版本更新
+pip install --upgrade tuStockSpider
