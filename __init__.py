@@ -3,7 +3,7 @@ __author__ = 'Jimmy Liu'
 """
 for trading data
 """
-from stock_run import (download_date,download_all_hitory)
+from stock_run import (download_history_data,download_all_hitory)
 
 '''
 download_history_data('000002')
