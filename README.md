@@ -6,12 +6,7 @@
 
 命令行pip install tuStockSpider 下载项目到
 
-之后在tuStockSpidert的路径下，如下
 
-/lib/python3/site-packages/tuStockSpider
-
-
-使用
 
 在编辑器中
 
