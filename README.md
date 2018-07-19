@@ -20,7 +20,7 @@ tss.download_history_data('000002','D:/temp/data/') #下载000002数据到D:/tem
 tss.download_history_data('000002')  #下载000002数据到默认的/lib/python3/site-packages/tuStockSpider/data文件夹
 
 
-#慎用download_all_hitor，速度慢而且多次请求
+#慎用download_all_hitory()，速度慢而且多次请求
 
 tss.download_all_hitory('') #下载全部股票数据
 
